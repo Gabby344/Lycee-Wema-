@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lycée Wema Sacré-Cœur | Lubumbashi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #c53030;
+            --accent: #ecc94b;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --gray: #718096;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            color: white;
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.6)), url('elevesassemblee.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #9c2626;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Sections Grid */
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .section-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .section-card-content {
+            padding: 20px;
+        }
+        
+        .section-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Carousel */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 20px;
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+        
+        .carousel-control {
+            background-color: rgba(255, 255, 255, 0.7);
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .carousel-control:hover {
+            background-color: white;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .carousel-indicator.active {
+            background-color: white;
+        }
+        
+        /* Registration Form */
+        .registration-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        /* Vlog Section */
+        .vlog-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .vlog-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+        
+        .vlog-comments {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+        }
+        
+        .comment {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comment:last-child {
+            border-bottom: none;
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .comment-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent);
+            bottom: -8px;
+            left: 0;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        
+        /* Highlight on Scroll */
+        .highlight {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        .highlight.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .registration-form, .vlog-form, .vlog-comments {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logoecolewema.jpg" alt="Logo Lycée Wema">
+                    <div class="logo-text">
+                        <h1>Lycée Wema Sacré-Cœur</h1>
+                        <p>Lubumbashi - RDC</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#apropos">À Propos</a></li>
+                        <li><a href="#sections">Sections</a></li>
+                        <li><a href="#galerie">Galerie</a></li>
+                        <li><a href="#inscription">Inscription</a></li>
+                        <li><a href="#horaire">Horaire</a></li>
+                        <li><a href="#vlog">Vlog</a></li>
+                    </ul>
+                    <div class="mobile-menu" id="mobile-menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="hero-content">
+            <h1>Lycée Wema Sacré-Cœur de Lubumbashi</h1>
+            <p>Première école de la jeune fille autochtone du Katanga, créée en 1924</p>
+            <a href="#apropos" class="btn">Découvrir notre histoire</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="apropos" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Notre Histoire</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text highlight">
+                    <p>Le Lycée Wema (Sacré-Cœur - Lubumbashi) est la première école de la jeune fille autochtone du Katanga, créée en 1924. Depuis sa création, il est dirigé par des religieuses, les Sœurs de la Charité de Jésus et Marie.</p>
+                    <p>De nos jours, le lycée a une population scolaire d'au moins 1900 élèves. Il est situé au croisement des avenues Sendwe et des Écoles, à quelques encablures du mythique hôpital de référence Sendwe à l'Est, du stade Mazembe au Sud, du collège Saint Boniface (Kitumaini) à l'Ouest et du camp militaire Major Vangu au Nord.</p>
+                    <p>Le lycée est à la limite de deux communes : Lubumbashi et Kamalondo. Il a formé des élèves de nationalités diverses : congolaises, zambiennes, rwandaises, burundaises, angolaises, etc.</p>
+                    <p>Sa formation est axée sur deux piliers : la science et la spiritualité, avec pour objectif de construire une fille complète et utile à la société.</p>
+                </div>
+                <div class="about-image highlight">
+                    <img src="lasoeurprefetaveclasenatrice.jpg" alt="Sœur préfet avec la sénatrice">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sections -->
+    <section id="sections" class="sections">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Sections</h2>
+            </div>
+            <div class="sections-grid">
+                <div class="section-card highlight">
+                    <img src="elevesexpose.jpg" alt="Biologie-Chimie">
+                    <div class="section-card-content">
+                        <h3>Biologie-Chimie</h3>
+                        <p>Formation scientifique complète axée sur les sciences de la vie et de la matière.</p>
+                    </div>
+                </div>
+                <div class="section-card highlight">
+                    <img src="elevesenclassse.jpg" alt="Commerciale et Gestion">
+                    <div class="section-card-content">
+                        <h3>Commerciale et Gestion</h3>
+                        <p>Préparation aux métiers du commerce, de la gestion et de l'administration.</p>
+                    </div>
+                </div>
+                <div class="section-card highlight">
+                    <img src="elevesprimaire.jpg" alt="Pédagogie Générale">
+                    <div class="section-card-content">
+                        <h3>Pédagogie Générale</h3>
+                        <p>Formation pour les futures enseignantes et éducatrices.</p>
+                    </div>
+                </div>
+                <div class="section-card highlight">
+                    <div class="section-card-content">
+                        <h3>Technique Coupe et Couture</h3>
+                        <p>Apprentissage des techniques de coupe, couture et création vestimentaire.</p>
+                    </div>
+                </div>
+                <div class="section-card highlight">
+                    <div class="section-card-content">
+                        <h3>Littéraire (Latin-Philosophie)</h3>
+                        <p>Section créée en 2013-2014, axée sur les humanités classiques et la philosophie.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Carousel -->
+    <section id="galerie" class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Galerie</h2>
+            </div>
+            <div class="carousel">
+                <div class="carousel-inner" id="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="elevesassemblee.jpg" alt="Élèves en assemblée">
+                        <div class="carousel-caption">
+                            <h3>Assemblée des élèves</h3>
+                            <p>Rassemblement des élèves du Lycée Wema</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="leseleveslycee.jpg" alt="Élèves du lycée">
+                        <div class="carousel-caption">
+                            <h3>Élèves du Lycée Wema</h3>
+                            <p>Les élèves en tenue uniforme bleu et blanc</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="legouverneuraveceleve.jpg" alt="Gouverneur avec élèves">
+                        <div class="carousel-caption">
+                            <h3>Le Gouverneur Jacques Kyabula Katwe</h3>
+                            <p>En visite au Lycée Wema avec les élèves</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="lasenatriceaulycee.jpg" alt="Sénatrice au lycée">
+                        <div class="carousel-caption">
+                            <h3>La Sénatrice Francine Muyumba</h3>
+                            <p>En visite au Lycée Wema Sacré-Cœur</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <div class="carousel-control prev" id="carousel-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="carousel-control next" id="carousel-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                <div class="carousel-indicators" id="carousel-indicators">
+                    <div class="carousel-indicator active"></div>
+                    <div class="carousel-indicator"></div>
+                    <div class="carousel-indicator"></div>
+                    <div class="carousel-indicator"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="inscription" class="registration">
+        <div class="container">
+            <div class="section-title">
+                <h2>Inscription en Ligne</h2>
+            </div>
+            <div class="registration-form highlight">
+                <form id="registration-form">
+                    <div class="form-group">
+                        <label for="nom">Nom complet</label>
+                        <input type="text" id="nom" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Adresse email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone">Numéro de téléphone</label>
+                        <input type="tel" id="telephone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="section">Section souhaitée</label>
+                        <select id="section" class="form-control" required>
+                            <option value="">Sélectionnez une section</option>
+                            <option value="biologie-chimie">Biologie-Chimie</option>
+                            <option value="commerciale-gestion">Commerciale et Gestion</option>
+                            <option value="pedagogie">Pédagogie Générale</option>
+                            <option value="coupe-couture">Technique Coupe et Couture</option>
+                            <option value="litteraire">Littéraire (Latin-Philosophie)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message supplémentaire</label>
+                        <textarea id="message" class="form-control" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Soumettre l'inscription</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="horaire" class="schedule">
+        <div class="container">
+            <div class="section-title">
+                <h2>Horaires en Ligne</h2>
+            </div>
+            <div class="registration-form highlight">
+                <p>Consultez les horaires de cours pour chaque section :</p>
+                <div class="form-group">
+                    <label for="schedule-section">Sélectionnez votre section</label>
+                    <select id="schedule-section" class="form-control">
+                        <option value="">Choisissez une section</option>
+                        <option value="biologie-chimie">Biologie-Chimie</option>
+                        <option value="commerciale-gestion">Commerciale et Gestion</option>
+                        <option value="pedagogie">Pédagogie Générale</option>
+                        <option value="coupe-couture">Technique Coupe et Couture</option>
+                        <option value="litteraire">Littéraire (Latin-Philosophie)</option>
+                    </select>
+                </div>
+                <div id="schedule-display" style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 5px; display: none;">
+                    <h3>Horaires de la section sélectionnée</h3>
+                    <p>Les horaires seront affichés ici après sélection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vlog Section -->
+    <section id="vlog" class="vlog">
+        <div class="container">
+            <div class="section-title">
+                <h2>Espace Vlog & Commentaires</h2>
+            </div>
+            <div class="vlog-container">
+                <div class="vlog-form highlight">
+                    <h3>Ajouter un commentaire</h3>
+                    <form id="comment-form">
+                        <div class="form-group">
+                            <label for="comment-name">Votre nom</label>
+                            <input type="text" id="comment-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="comment-text">Votre commentaire</label>
+                            <textarea id="comment-text" class="form-control" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Publier le commentaire</button>
+                    </form>
+                </div>
+                <div class="vlog-comments highlight">
+                    <h3>Commentaires récents</h3>
+                    <div id="comments-list">
+                        <!-- Comments will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Lycée Wema Sacré-Cœur</h3>
+                    <p>Première école de la jeune fille autochtone du Katanga, créée en 1924.</p>
+                    <p>Formation axée sur la science et la spiritualité.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Avenue Sendwe & des Écoles, Lubumbashi</p>
+                    <p><i class="fas fa-phone"></i> +243 XXX XXX XXX</p>
+                    <p><i class="fas fa-envelope"></i> contact@lyceewema.cd</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <a href="#accueil">Accueil</a>
+                    <a href="#apropos">À Propos</a>
+                    <a href="#sections">Sections</a>
+                    <a href="#galerie">Galerie</a>
+                    <a href="#inscription">Inscription</a>
+                    <a href="#horaire">Horaire</a>
+                    <a href="#vlog">Vlog</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Lycée Wema Sacré-Cœur de Lubumbashi. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Firebase and JavaScript -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBER-Vg1CAr8dBgc75Cl48XIExRddcpzR0",
+            authDomain: "lycee-wema.firebaseapp.com",
+            projectId: "lycee-wema",
+            storageBucket: "lycee-wema.firebasestorage.app",
+            messagingSenderId: "310750583872",
+            appId: "1:310750583872:web:b3fd14cdac7144a56093a5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // DOM Elements
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        const carouselInner = document.getElementById('carousel-inner');
+        const carouselPrev = document.getElementById('carousel-prev');
+        const carouselNext = document.getElementById('carousel-next');
+        const carouselIndicators = document.getElementById('carousel-indicators');
+        const registrationForm = document.getElementById('registration-form');
+        const scheduleSection = document.getElementById('schedule-section');
+        const scheduleDisplay = document.getElementById('schedule-display');
+        const commentForm = document.getElementById('comment-form');
+        const commentsList = document.getElementById('comments-list');
+
+        // Mobile Menu Toggle
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+
+        // Carousel Functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+
+        function updateCarousel() {
+            carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        carouselPrev.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateCarousel();
+        });
+
+        carouselNext.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateCarousel();
+        });
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+
+        // Auto-advance carousel
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateCarousel();
+        }, 5000);
+
+        // Registration Form Submission
+        registrationForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                nom: document.getElementById('nom').value,
+                email: document.getElementById('email').value,
+                telephone: document.getElementById('telephone').value,
+                section: document.getElementById('section').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date()
+            };
+            
+            try {
+                await addDoc(collection(db, "registrations"), formData);
+                alert('Votre inscription a été soumise avec succès! Nous vous contacterons bientôt.');
+                registrationForm.reset();
+            } catch (error) {
+                console.error("Error adding document: ", error);
+                alert("Une erreur s'est produite. Veuillez réessayer.");
+            }
+        });
+
+        // Schedule Display
+        scheduleSection.addEventListener('change', () => {
+            const selectedSection = scheduleSection.value;
+            
+            if (selectedSection) {
+                scheduleDisplay.style.display = 'block';
+                
+                // In a real implementation, you would fetch the schedule from Firebase
+                // For now, we'll just display a placeholder
+                scheduleDisplay.innerHTML = `
+                    <h3>Horaires - ${scheduleSection.options[scheduleSection.selectedIndex].text}</h3>
+                    <p>Les horaires détaillés pour cette section seront disponibles bientôt.</p>
+                    <p>Pour le moment, veuillez contacter l'administration pour plus d'informations.</p>
+                `;
+            } else {
+                scheduleDisplay.style.display = 'none';
+            }
+        });
+
+        // Comment Form Submission
+        commentForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const commentData = {
+                name: document.getElementById('comment-name').value,
+                text: document.getElementById('comment-text').value,
+                timestamp: serverTimestamp()
+            };
+            
+            try {
+                await addDoc(collection(db, "comments"), commentData);
+                alert('Votre commentaire a été publié!');
+                commentForm.reset();
+                loadComments();
+            } catch (error) {
+                console.error("Error adding comment: ", error);
+                alert("Une erreur s'est produite lors de la publication de votre commentaire.");
+            }
+        });
+
+        // Load Comments
+        async function loadComments() {
+            try {
+                const q = query(collection(db, "comments"), orderBy("timestamp", "desc"));
+                const querySnapshot = await getDocs(q);
+                
+                commentsList.innerHTML = '';
+                
+                if (querySnapshot.empty) {
+                    commentsList.innerHTML = '<p>Aucun commentaire pour le moment. Soyez le premier à commenter!</p>';
+                    return;
+                }
+                
+                querySnapshot.forEach((doc) => {
+                    const comment = doc.data();
+                    const commentElement = document.createElement('div');
+                    commentElement.className = 'comment';
+                    
+                    // Format date
+                    let dateString = 'Date inconnue';
+                    if (comment.timestamp) {
+                        const date = comment.timestamp.toDate();
+                        dateString = date.toLocaleDateString('fr-FR', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        });
+                    }
+                    
+                    commentElement.innerHTML = `
+                        <div class="comment-header">
+                            <span class="comment-author">${comment.name}</span>
+                            <span class="comment-date">${dateString}</span>
+                        </div>
+                        <div class="comment-text">${comment.text}</div>
+                    `;
+                    
+                    commentsList.appendChild(commentElement);
+                });
+            } catch (error) {
+                console.error("Error loading comments: ", error);
+                commentsList.innerHTML = '<p>Erreur lors du chargement des commentaires.</p>';
+            }
+        }
+
+        // Highlight on Scroll
+        function checkScroll() {
+            const highlights = document.querySelectorAll('.highlight');
+            
+            highlights.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight * 0.85) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initial load
+        window.addEventListener('load', () => {
+            loadComments();
+            checkScroll();
+        });
+
+        // Check scroll position
+        window.addEventListener('scroll', checkScroll);
+    </script>
+</body>
+</html>
