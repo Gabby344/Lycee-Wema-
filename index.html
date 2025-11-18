@@ -148,6 +148,7 @@
             cursor: pointer;
             color: white;
             transition: var(--transition);
+            z-index: 1001;
         }
         
         .mobile-menu:hover {
@@ -860,6 +861,7 @@
                 padding: 40px 0;
                 box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
                 gap: 0;
+                z-index: 999;
             }
             
             nav ul.show {
@@ -1037,7 +1039,7 @@
                     </div>
                 </div>
                 <div class="section-card highlight">
-                    <img src="elevesprimaire.jpg" alt="Pédagogie Générale">
+                    <img src="imagesunmotdela maitresse.jpg" alt="Pédagogie Générale">
                     <div class="card-badge">Éducation</div>
                     <div class="section-card-content">
                         <h3>Pédagogie Générale</h3>
@@ -1320,10 +1322,11 @@
             }
         }
 
-        // Mobile Menu Toggle
-        mobileMenu.addEventListener('click', () => {
+        // Mobile Menu Toggle - CORRECTION
+        mobileMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
             navMenu.classList.toggle('show');
-            mobileMenu.innerHTML = navMenu.classList.contains('show') ? 
+            this.innerHTML = navMenu.classList.contains('show') ? 
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
@@ -1333,6 +1336,14 @@
                 navMenu.classList.remove('show');
                 mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
             });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navMenu.contains(e.target) && !mobileMenu.contains(e.target)) {
+                navMenu.classList.remove('show');
+                mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
+            }
         });
 
         // Carousel Functionality
